@@ -9,6 +9,6 @@ namespace AspNetCoreIdentity.Data
         public string? PayrollNumber { get; set; }
         public string? Region { get; set; }
         public string? Branch { get; set; }
-        public DateTime DateAndTimeReported { get; set; }
+        public DateTime DateAndTimeReported { get; set; } = DateTime.Now;
     }
 }

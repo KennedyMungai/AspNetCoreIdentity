@@ -70,6 +70,31 @@ namespace AspNetCoreIdentity.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+            [Required]
+            [StringLength(255, ErrorMessage = "The first name field should have a maximum of 255 characters")]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            
+            [Required]
+            [StringLength(255, ErrorMessage = "The last name field should have a maximum of 255 characters")]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+            
+            [Required]
+            [StringLength(6, ErrorMessage = "The payroll field should have a maximum of 6 characters")]
+            [Display(Name = "Payroll Number")]
+            public string PayrollNumber { get; set; }
+            
+            [Required]
+            [StringLength(100, ErrorMessage = "The region field should have a maximum of 100 characters")]
+            [Display(Name = "Region")]
+            public string Region { get; set; }
+            
+            [Required]
+            [StringLength(100, ErrorMessage = "The branch field should have a maximum of 100 characters")]
+            [Display(Name = "Branch")]
+            public string Branch { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -113,6 +138,12 @@ namespace AspNetCoreIdentity.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+
+                FirstName = Input.FirstName;
+                LastName = Input.LastName;
+                PayrollNumber = Input.PayrollNumber;
+                Region = Input.PayrollNumber;
+                Branch = Input.Branch;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

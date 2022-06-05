@@ -25,7 +25,7 @@ namespace AspNetCoreIdentity.Data
         {
             builder.Property(u => u.FirstName).HasMaxLength(255);
             builder.Property(u => u.LastName).HasMaxLength(255);
-            builder.Property(u => u.PayrollNumber).HasMaxLength(255);
+            builder.Property(u => u.PayrollNumber).HasMaxLength(6);
             builder.Property(u => u.Region).HasMaxLength(255);
             builder.Property(u => u.Branch).HasMaxLength(255);
             builder.Property(u => u.DateAndTimeReported);
